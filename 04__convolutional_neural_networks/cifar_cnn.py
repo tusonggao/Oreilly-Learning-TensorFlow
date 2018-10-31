@@ -201,6 +201,8 @@ def build_second_net():
     conv2_pool = max_pool_2x2(conv2_3)
     conv2_drop = tf.nn.dropout(conv2_pool, keep_prob=keep_prob)
 
+    
+
     print('in build_second_net 333')
 
     conv3_1 = conv_layer(conv2_drop, shape=[3, 3, C2, C3])
