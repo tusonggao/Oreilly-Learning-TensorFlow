@@ -9,7 +9,9 @@ import tensorflow as tf
 
 # Import MINST data
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
+
+DATA_DIR = "C:/github_base/Oreilly-Learning-TensorFlow/data_dir/mnist/"
+mnist = input_data.read_data_sets(DATA_DIR, one_hot=True)
 
 # Define some parameters
 element_size = 28
@@ -19,7 +21,7 @@ batch_size = 128
 hidden_layer_size = 128
 
 # Where to save TensorBoard model summaries
-LOG_DIR = "logs/RNN_with_summaries"
+LOG_DIR = "C:/github_base/Oreilly-Learning-TensorFlow/data_dir/log/"
 
 # Create placeholders for inputs, labels
 _inputs = tf.placeholder(tf.float32,
@@ -120,7 +122,6 @@ with tf.name_scope('accuracy'):
 # Merge all the summaries
 merged = tf.summary.merge_all()
 
-
 # Get a small test set
 test_data = mnist.test.images[:batch_size].reshape((-1, time_steps, element_size))
 test_label = mnist.test.labels[:batch_size]
@@ -144,7 +145,8 @@ with tf.Session() as sess:
             # Add to summaries
             train_writer.add_summary(summary, i)
 
-            if i % 1000 == 0:
+            if i % 200 == 0:
+            #if i % 1000 == 0:
                 acc, loss, = sess.run([accuracy, cross_entropy],
                                       feed_dict={_inputs: batch_x,
                                                  y: batch_y})

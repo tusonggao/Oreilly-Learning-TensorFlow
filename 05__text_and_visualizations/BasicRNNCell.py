@@ -7,7 +7,10 @@ Created on Tue Dec 20 17:34:43 2016
 from __future__ import print_function
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
+
+
+DATA_DIR = "C:/github_base/Oreilly-Learning-TensorFlow/data_dir/mnist/"
+mnist = input_data.read_data_sets(DATA_DIR, one_hot=True)
 
 element_size = 28
 time_steps = 28
