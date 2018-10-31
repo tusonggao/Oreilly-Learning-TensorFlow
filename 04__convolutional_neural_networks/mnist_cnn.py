@@ -4,7 +4,7 @@ import numpy as np
 
 from layers import conv_layer, max_pool_2x2, full_layer
 
-DATA_DIR = '/tmp/data'
+DATA_DIR = "C:/github_base/Oreilly-Learning-TensorFlow/data_dir/mnist/"
 MINIBATCH_SIZE = 50
 STEPS = 5000
 
